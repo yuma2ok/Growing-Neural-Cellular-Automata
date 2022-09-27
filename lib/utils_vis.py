@@ -26,6 +26,14 @@ class SamplePool:
         for k in self._slot_names:
             getattr(self._parent, k)[self._parent_idx] = getattr(self, k)
 
+# def to_alpha(x):
+#     return torch.clip(x[..., 3:4], 0, 0.9999)
+
+# def to_rgb(x):
+#     # assume rgb premultiplied by alpha
+#     rgb, a = x[..., :3], to_alpha(x)
+#     return torch.clip(1.0-a+rgb, 0, 0.9999)
+
 def to_alpha(x):
     return np.clip(x[..., 3:4], 0, 0.9999)
 
